@@ -1,0 +1,61 @@
+* {
+    /* border-box不包含margin */
+    box-sizing: border-box;
+    
+}
+
+body {
+    background-color: rgba(235, 203, 235, 0.667);
+    display: flex;
+    /* 主轴起点与主轴终点和书写模式的前后点相同 */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* 视区 */
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* 按钮样式 */
+.magic {
+    background-color: beige;
+    color: rgb(66, 8, 8);
+    border: 0;
+    /* 圆角 */
+    border-radius: 3px;
+    font-size: 16px;
+    padding: 12px 20px;
+    /* 设置光标 */
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    letter-spacing: 1px;
+    box-shadow: 0 3px rgb(196, 196, 137);
+    /* 层级 */
+    z-index: 100;
+}
+
+.magic:focus {
+    outline: none;
+}
+
+.magic:active {
+    box-shadow: none;
+    /* 垂直移动2px */
+    transform: translateY(2px)
+}
+
+.boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 500px;
+    width: 500px;
+    position: relative;
+    transition: 0.4s ease;
+}
+
+.boxes.big .box {
+    transform: rotateZ(360deg);
+    background-image: url();
+}

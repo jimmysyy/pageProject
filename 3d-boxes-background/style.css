@@ -1,37 +1,33 @@
 * {
-    /* border-box不包含margin */
+    /* 盒子不包括外边距 */
     box-sizing: border-box;
-    
 }
 
 body {
-    background-color: rgba(235, 203, 235, 0.667);
+    background-color: #fafafa;
     display: flex;
-    /* 主轴起点与主轴终点和书写模式的前后点相同 */
+    /* 沿垂直主轴从上到下排列，起点在上沿 */
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* 视区 */
     height: 100vh;
     overflow: hidden;
 }
 
-/* 按钮样式 */
 .magic {
-    background-color: beige;
-    color: rgb(66, 8, 8);
+    background-color: #f9ca24;
+    color: #fff;
     border: 0;
-    /* 圆角 */
     border-radius: 3px;
     font-size: 16px;
     padding: 12px 20px;
-    /* 设置光标 */
+    /* 光标类型 */
     cursor: pointer;
     position: fixed;
     top: 20px;
+    /* letter-spacing 的正值会导致字符分布得更远，而 letter-spacing 的负值会使字符更接近 */
     letter-spacing: 1px;
-    box-shadow: 0 3px rgb(196, 196, 137);
-    /* 层级 */
+    box-shadow: 0 3px rgba(249, 202, 36, 0.5);
     z-index: 100;
 }
 
@@ -41,21 +37,59 @@ body {
 
 .magic:active {
     box-shadow: none;
-    /* 垂直移动2px */
-    transform: translateY(2px)
+    transform: translate(2px);
 }
 
 .boxes {
     display: flex;
+    /* flex 元素单行显示还是多行显示 wrap表示打断到多个行中*/
     flex-wrap: wrap;
     justify-content: space-around;
     height: 500px;
     width: 500px;
     position: relative;
+    /* 过渡动画 */
     transition: 0.4s ease;
 }
 
-.boxes.big .box {
-    transform: rotateZ(360deg);
-    background-image: url();
+.boxes.big {
+    width: 600px;
+    height: 600px;
 }
+
+.boxes.big .box {
+    transform: rotate(360deg);
+}
+
+.box {
+    background-image: url('http://tva1.sinaimg.cn/large/007YxDbMgy1h4mp4bq21hj30rs0rsnfu.jpg');
+    /* 定义背景图像的重复方式 */
+    background-repeat: no-repeat;
+    background-size: 500px 500px;
+    position: relative;
+    height: 125px;
+    width: 125px;
+    transition: 0.4s ease;
+}
+
+.box::after {
+    content: '';
+    background-color: #f6e58d;
+    position: absolute;
+    top: 8px;
+    right: -15px;
+    height: 100%;
+    width: 15px;
+    transform: skewY(45deg);
+}
+
+.box::before {
+    content: '';
+    background-color: #f9ca24;
+    position: absolute;
+    bottom: -15px;
+    left: 8px;
+    height: 15px;
+    width: 100%;
+    transform: skewX(45deg);
+  }

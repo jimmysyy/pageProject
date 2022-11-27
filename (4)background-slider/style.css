@@ -64,6 +64,10 @@ body::before {
     transform: translateY(-50%);
 }
 
+.code {
+    
+}
+
 .arrow:focus {
     /* calc() 此 CSS 函数允许在声明 CSS 属性值时执行一些计算 */
     outline: 0;
